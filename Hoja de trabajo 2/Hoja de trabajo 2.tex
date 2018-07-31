@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+
+\linespread{0.9} 
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\begin{document}
+
+
+
+\title{Hoja de trabajo 2}
+\author{Gabriel Chavarria, 20181386, chavarria181386@unis.edu.gt}
+\date{02 de agosto del 2018}
+
+\maketitle
+
+\section{Ejercicio \#1}
+
+\raggedright Demostración por inducción:\\
+$$\centering\forall\ n.\ n^3\geq n^2$$\\
+\raggedright Caso Base: n=0 \\
+$$(0^3) \geq (0^2)$$
+
+$$\centering 0 \geq 0 $$\\ \textit{-Por lo tanto si cumple para el caso base.}\\
+
+
+
+
+ \centering Hipótesis inicial:$$ n^3\geq n^2$$\\
+\raggedright Demostrar para  n= n+1 \\ 
+$$\Rightarrow (n+1)(n+1)^2 \geq (n+1)^2 $$\\
+$$\Rightarrow (n+1) \geq \frac{(n+1)^2}{(n+1)^2} $$\\ 
+$$\Rightarrow (n+1) \geq 1 $$\\
+$$\Rightarrow (n) \geq 1-1$$ \\
+$$\Rightarrow n \geq 0 $$\\
+
+
+\raggedright (n\in\mathbb{N}, \mathbb{N}\geq 0)\\
+-Por lo cual para (n+1) si se cumple.\\
+
+\section{Ejercicio \#2}
+\raggedright Demostrar por inducción \\
+
+$$\centering\forall\ n.\ (1+x)^n\geq nx$$\\
+\raggedright Caso Base: n=0 \\
+$$ (1+x)^0\geq (0)x$$\\
+$$ 1\geq (0)$$ \textit{-Por lo tanto si cumple para el caso base.}\\
+
+\centering Hipótesis inicial:$$\Rightarrow (1+x)^n\geq nx+1$$\\
+\textit{($n\in \mathbb{N}$, $x\in \mathbb{Q}$ y $x+1\geq 0$)}
+
+\raggedright Demostrar para  n= n+1 \\ 
+$$\Rightarrow (1+x)^{n}\geq (nx+1) $$\centering\textit{(Se mulitiplica por (1+x) en ambos lados)}\\
+$$\Rightarrow (1+x)^n(1+x)\geq (1+x)(nx+1) $$ \\
+$$\Rightarrow (1+x)^{n+1}\geq nx+1+nx^2+x$$\\
+
+\centering $$\Rightarrow (1+x)^{n+1}\geq 1+x(1+n)+nx^2$$\\
+
+$$\Rightarrow (1+x)^{n+1}\geq 1+x(1+n)$$\\ 
+
+\raggedright -((nx^2) \geq 0)
+\\ 
+-Por lo cual para (n+1) si se cumple.\\
+
+
+
+
+
+\end{document}
