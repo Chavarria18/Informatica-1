@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+
+\linespread{0.9} 
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\begin{document}
+
+
+
+\title{Hoja de trabajo #3}
+\author{Gabriel Chavarria, 20181386, chavarria181386@unis.edu.gt}
+\date{16 de agosto del 2018}
+
+\maketitle
+
+\section{Ejercicio \#1}
+Sumar s(s(s(0))) \oplus s(s(s(s(0))))\\
+
+\centering
+s(s(s(0))) \oplus  s(s(s(s(0))))\\\medskip
+s(s(s(s(0))) \oplus  s(s(s(0))))\\\medskip
+s(s(s(s(s(0))) \oplus  s(s(0))))\\\medskip
+s(s(s(s(s(s(0))) \oplus  (s(0))))\\\medskip
+s(s(s(s(s(s(s(0\oplus0))))\\\medskip
+s(s(s(s(s(s(s(0)))))))\\
+
+\raggedright\section{Ejercicio \#2}
+Definir la multiplicación para numeros naturales unarios:
+
+\[            n\otimes m := \left\{
+        \begin{array}{l l}
+            0 & \mbox{si } n=0 \\
+            0 & \mbox{si } m=0 \\
+            0 & \mbox{si } m=0,n=0 \\
+            m & \mbox{si } n=1 \\
+            n & \mbox{si } m=1 \\
+            s(i)\oplus(s(i)\otimes j) & \mbox{si } n=s(i) \\
+        \end{array}
+        \right.
+\]
+
+\section{Ejercicio \#3}
+
+\begin{itemize}
+
+        \item{$s(s(s(0)))\otimes 0$\\\medskip
+        \underline{$s(s(s(0)))\otimes 0$ = 0} , m=0 entonces por definición es 0 }
+        
+        
+        \item{$s(s(s(0)))\otimes s(0)$\\\medskip
+        $s(s(s(0)))\otimes s(0)$\\\medskip
+        s(0)=1 \\\medskip 
+        s(s(s(0)))\otimes s(0)= \underline{s(s(s(0)))}}
+
+        \item{$s(s(s(0)))\otimes s(s(0))$\\\medskip
+        $s(s(s(0)))\oplus(s(s(s(0)))\otimes s(0))$\\\medskip
+        $s(s(s(0)))\oplus(s(s(s(0)))$\\\medskip
+        $s(s(s(s(0)))\oplus s(s(0)))$\\\medskip
+        $s(s(s(s(s(0)))\oplus s(0)))$\\\medskip
+        $s(s(s(s(s(s(0 \oplus 0))))))$\\\medskip
+        \underline{$s(s(s(s(s(s(0))))))$} }\\\medskip
+        Efectivamente 3\otimes 2= 6 \bigskip
+        
+    
+\end{itemize}
+
+
+
+\section{Ejercicio \#4}
+
+
+\textbf{1-} {$a\oplus s(s(0))=s(s(a))$}\\
+Caso base: $a=0$ \medskip
+
+{$0\oplus s(s(0))=s(s(0))$}\\\medskip
+{s(s(0))=s(s(0))}\\\medskip
+Caso inductivo: a = s(i)\\\medskip
+{$s(i) \oplus s(s(0))=s(s(s(i)))$}\\\medskip
+{$s(s(i) \oplus s(0))=s(s(s(i)))$}\\\medskip
+{$s(s(s(i \oplus 0)))=s(s(s(i)))$}\\  \medskip
+\underline{$s(s(s(i)))=s(s(s(i)))$}\\\medskip
+
+\bigskip
+
+\raggedright\textbf{2-}{$a \otimes b = b \otimes a$}\\
+Caso base: $a=0$ \\\medskip
+0 \otimes  b = b \otimes 0\\
+0=0 \\\bigskip
+
+
+Caso inductivo: a = $s(i)\\\medskip$
+$s(i)$\otimes b = b \otimes $s(i)$ \\
+ $s(i) \oplus (s(i) \otimes b) = s(i) \oplus (s(i) \otimes b)$\\
+{$s(i) \otimes b = s(i) \otimes b$}\\
+$-s(i)= (n+1) $\\
+$(n+1)\otimes b =(n+1) \otimes b $\\
+\underline{$b=b$}
+
+ 
+\bigskip
+
+
+\raggedright\textbf{3-} {$a \otimes (b \otimes c)=(a\otimes b)\otimes c$}\\
+Caso base: $a=0$ \\\medskip
+{$0 \otimes (b \otimes c)=(0\otimes b)\otimes c$}\\
+{$0=(0)\otimes c$}\\
+{$0=0$}\\
+\medskip
+
+Caso inductivo: a = s(i)=(n+1)\\\medskip
+{$s(i) \otimes (b \otimes c)=(s(i)\otimes b)\otimes c$}\\ 
+$(n+1) \otimes (b \otimes c) =((n+1) \otimes b) \otimes c \\
+nb \otimes c+ bc = (nb \oplus b) \otimes c \\
+nbc \oplus bc = nbc \oplus bc\\
+nbc \ominus  nbc \oplus bc =bc\\
+bc=bc\\
+c=c\\
+
+\underline{0=0}$\\
+
+
+
+\bigskip
+
+
+\raggedright\textbf{4-}{$(a\oplus b)\otimes c = (a\otimes c) \oplus (b \otimes c)$}\\
+Caso base: $a=0$ \\\medskip
+$(0\oplus b)\otimes c = (0\otimes c) \oplus (b \otimes c)$\\
+$(b)\otimes c = (0) \oplus (b \otimes c)$\\
+$b\otimes c = b \otimes c$\\\medskip
+
+
+
+
+Caso inductivo: a = (n+1)\\\medskip
+
+$(a \otimes b) \otimes (n \oplus 1) = (a \otimes (n \oplus 1)) \oplus (b \otimes (n \oplus 1))$\\
+
+$(a \otimes (n \oplus 1) \oplus (b \otimes (n \oplus 1)) = (an \oplus a) \oplus (bn \oplus b)$\\
+$(an \oplus a) \oplus (bn \oplus b) = (an \oplus a) \oplus (bn \oplus b)$\\
+
+$(an \ominus an) \oplus (bn \ominus bn) \oplus (a \ominus a) \oplus (b \ominus b) = 0$\\
+\underline{0=0}
+
+
+\bigskip
+\bigskip
+
+*(Suma:
+m\oplus n= s(i \oplus j)\\
+si n=s(i) )
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
