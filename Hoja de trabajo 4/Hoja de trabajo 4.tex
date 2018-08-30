@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+
+\linespread{0.9} 
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\begin{document}
+
+\title{Hoja de trabajo #4}
+\author{Gabriel Chavarria, 20181386, chavarria181386@unis.edu.gt}
+\date{30 de agosto del 2018}
+
+\maketitle
+
+\section{Ejercicio \#1}
+\begin{enumerate}
+        \item{($a=d$) $a:=\{1,2,4,8,16,32,64\}$} = {$d:=\{n\in\mathbb{N}\ |\ \exists i\in\mathbb{N}\ .\ n=2^i\wedge n<100 \}$}
+        
+        
+        \item{($b=f$)$b:=\{n\ \in \mathbb{N}\ |\ \exists x \in \mathbb{N}\ .\ x=n/5 \}$} = {$f:=\{ n\in\mathbb{N}\ |\ \exists x\in \mathbb{N}\ .\ n=x+x+x+x+x \}$}
+        
+        
+        \item{($c=e$)$c:=\{n\in \mathbb{N}\ |\ \exists x\in\mathbb{N}\ .\ n=x*x \}$} = {$e:=\{ n\in\mathbb{N}\ |\ \exists x\in \mathbb{N}\ .\ x=\sqrt{n} \}$}
+        
+        
+        
+\end{enumerate}
+
+
+\section{Ejercicio \#2}
+
+\begin{enumerate}
+        \item{$a:=\{x \in \mathbb{N}\ |\ \exists x \in \mathbb{N}\ .\ x/5 $\}}
+        \item{$b:=\{x \in \mathbb{N}\ |\ \exists x \in \mathbb{N}\ .\ x/5  \wedge  x/4 $\}}
+        \item{$c:=\{x \in \mathbb{N}\ |(1<x<n)$ \wedge n/x\}}
+        
+        \item{{$d:=\{d\subset P(\mathbb{N}) |\ \exists x \in \mathbb{N}\ .\ n=(x/15)\        \exists x \subset d | x/15 $\}}}
+        
+        \item{{$e:=\{d\subset P(\mathbb{N}) |\ \exists x \in \mathbb{N}\ \wedge \exists n \in \mathbb{N}\  .\ x+n=42 \         $\}}}
+
+
+\end{enumerate}
+
+\section{Ejercicio \#3}
+
+
+\small{B_1:\{<<Primo_1, Primo_2>,semiprimo>\ | (Primo_1, Primo_2) \in\mathbb{N_{30}}\wedge semi-primo= Primo_1*Primo_2>\}} 
+
+
+\section{Ejercicio \#4}
+
+\begin{enumerate}
+
+        \item{\lambda x \in \mathbb{N} . x+x = \{<x,x+x>| x \in \mathbb{N}}\} 
+        
+         \item{\lambda x \in \mathbb{N} . true=\{<x,true>| x \in \mathbb{N} \wedge x/5}\} \bigcup {\lambda x \in \mathbb{N} . false=\{<x,false>| x \in \mathbb{N} \wedge \neg (x/5)}\} 
+         
+         \item{f \circ g \in P(\mathbb{N})} 
+         
+         \item{\lambda x\in\mathbb{N}.f(gx) = \{<x,f(gx)> |x \in \mathbb{N}\wedge f(x)\in\mathbb{N} \wedge g(x) \subset f(x) }\} 
+        
+        
+
+\end{enumerate}
+
+
+
+
+\section{Ejercicio \#5}
+
+\begin{enumerate}
+
+        \item{$f(x)=x^2$} - \textbf{Surjectiva}
+        \item{$g(x)=\frac{1}{cos(x-1)}$}-\textbf{Injectiva} 
+        \item{$h(x)=2x$} - \textbf{Bijectiva}
+        \item{$w(x)=x+1$} - \textbf{Bijectiva}
+
+\end{enumerate}
+
+
+
+\section{Ejercicio \#6}
+\begin{enumerate}
+
+\item{B_1:\lambda x  in\mathbb{N} $x$ \mathbb{N}  . y = \{<x,y>| (x/2) \wedge y>0}\} 
+
+\item{B_2:\lambda x  \mathbb{N} $x$ \mathbb{N} . y = \{<x,y>| \neg (x/2) \wedge y>0}\}
+
+\item{B_{2a}:\lambda x  \mathbb{N} $x$ \mathbb{Z}  . -y = \{<x,-y>| \neg (x/2) \wedge y<0}\}
+
+\item{B:\lambda x  \mathbb{Z} $x$ \mathbb{Z}  . y = \{<x,y>|  (x/2), x \in \mathbb{Z} \wedge y \in \mathbb{Z} }\}
+
+       
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}
