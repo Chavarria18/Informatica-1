@@ -57,15 +57,15 @@ type Estado = Final Int | Parcial (List Char)
 
 type alias PExpresion = Expresion 
 
-buscarSuma : List Char -> Maybe (List Char, List Char)
+--buscarSuma : List Char -> Maybe (List Char, List Char)
 
-buscarMultiplicacion : List Char -> Maybe (List Char, List Char)
+--buscarMultiplicacion : List Char -> Maybe (List Char, List Char)
 
-parsear : Estado -> PExpresion
+--parsear : Estado -> PExpresion
  
-parsear n = buscarSuma (String.toList "n") buscarMultiplicacion (String.toList "n") of
-    Nothing -> buscarMultiplicacion                             -- prober mult -- Valor (String.toInt "3")
-    Just (iz, dr) -> Suma (parsear (Parcial iz)) (parsear (Parcial dr))
+--parsear n = buscarSuma (String.toList "n") buscarMultiplicacion (String.toList "n") of
+    --Nothing -> buscarMultiplicacion                             -- prober mult -- Valor (String.toInt "3")
+   -- Just (iz, dr) -> Suma (parsear (Parcial iz)) (parsear (Parcial dr))
 
 
 
