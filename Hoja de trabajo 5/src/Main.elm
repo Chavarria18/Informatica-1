@@ -43,3 +43,7 @@ contn (n,y) =
     else if esPrimo y == False
     then contn (n, y + 1)
     else y:: contn (n - 1, y + 1) --repite el proceso
+
+espar: Int -> Bool
+espar n = 
+    if modBy 2 n == 0 then True else False 

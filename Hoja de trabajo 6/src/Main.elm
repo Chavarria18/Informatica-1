@@ -32,9 +32,6 @@ divn n1 n2 x = case (n1, n2, x) of
     (n1_, Cero , x_) -> Cero    
     (n1_,  n2_ , x_) -> divn (restar n1_ n2_) n2_ (Suc x_)
 
-
-
-
 division: Natural -> Natural -> (Natural, Natural)
 division n1_ n2_ =
     if multiplicacion (divn n1_ n2_ Cero) n2_ == n1_ 
@@ -42,6 +39,10 @@ division n1_ n2_ =
     else (restar (divn n1_ n2_ Cero) (Suc Cero), restar (n1_ )(multiplicacion (restar(divn n1_ n2_ Cero)(Suc Cero)) n2_ ))
 
 
+
+
+--factorial n1_ = 
+  --  if n1_ == Suc Cero then n1_ else multiplicacion (restar (n1_ Suc n1_)) n1_
 
 --Ejercicio 2
 
@@ -66,7 +67,6 @@ type alias PExpresion = Expresion
 --parsear n = buscarSuma (String.toList "n") buscarMultiplicacion (String.toList "n") of
     --Nothing -> buscarMultiplicacion                             -- prober mult -- Valor (String.toInt "3")
    -- Just (iz, dr) -> Suma (parsear (Parcial iz)) (parsear (Parcial dr))
-
 
 
 
