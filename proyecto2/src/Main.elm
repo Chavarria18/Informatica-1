@@ -1,32 +1,10 @@
-module Main exposing (..)
+module Main exposing (main)
 
 import Browser
 import Canvas
 import CanvasColor as Color exposing (Color)
-import Html exposing (Html)
+import Html exposing (Html,div)
 import Html.Attributes exposing (style)
-
-
-
--- Las coordenadas de cada una de las esquinas del
--- poligono que se dibujara
-
-init = [
-    
-        (300 , 200), 
-        (400, 400) ,
-        (200,400) ]
-    
-
---rsk (x1, y2) (x2, y2) (x3, y3) = 
-sierpinski : Int -> List String
-sierpinski n =
-  let down a = sierpinski (n - 1)
-      space a = List.repeat (2 ^ (n - 1)) " "
-  in case n of
-       0 -> ["*"]
-       _ ->   List.map ((\st -> space n ++ st) << (\st -> st ++ space n)) (down n)   ++ List.map (join " " << List.repeat 2) (down n)
-
 
 conectar (x1,y1) (x2,y2) = []
 
@@ -39,22 +17,27 @@ siguienteAux origen puntos =
 siguiente puntos =
     case puntos of
         [] -> []
-        x::xs -> siguienteAux x puntos 
+        x::xs -> siguienteAux x puntos
+
+-- Las coordenadas de cada una de las esquinas del
+-- poligono que se dibujara
+init = [
+    (300, 200),
+    (400, 400),
+    (200, 400)
+    ]
+
 
 initn n = case n of 
-    0 -> init
+    0 -> init 
     a ->  siguiente (initn (n - 1) ) 
-
-vector: ((Float , Float),(Float , Float))-> (Float, Float)
-
-vector ((x1, y1) ,(x2 , y2)) = ((x1 + x2)/2, (y1 + y2)/2)
+--if n == 0 then init else siguiente (initn (n - 1))
 
 
-
---sk reps = fractal 
--- Dada una lista de coordenadas, esta funcion
+-- Dada una lista de coordesnadas, esta funcion
 -- genera los comandos necesarios para dibujar
 -- las lineas que connectan dichas coordenadas
+
 dibujar triangulo context =
     let
         acc (x,y) s = s |> Canvas.lineTo x y
@@ -67,28 +50,27 @@ dibujar triangulo context =
 
 -- Funcion que genera el html que corresponde al
 -- poligono siendo dibujado
+
 view : Html msg
-view = 
-    let
+view = div
+        [style "display" "flex"
+        , style "justify-content" "center"
+        , style "align-items" "center"
+        ]
+    [let
         width = 600
         height = 600
-        poligono ctx = dibujar (sierpinski 2 ) ctx
+        poligono ctx = dibujar (initn 5) ctx
     in
         Canvas.element
             width
             height
-            [ style "border" "5px solid black" ]
+            [ style "border" "8px solid black" ]
             (
                 Canvas.empty
                 |> Canvas.clearRect 0 0 width height
                 |> poligono
                 |> Canvas.stroke
             )
-    
+    ]
 main = view
-
-
-
-
-
-

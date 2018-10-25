@@ -4506,6 +4506,7 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
+var elm$html$Html$div = _VirtualDom_node('div');
 var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
 var joakin$elm_canvas$Canvas$clearRect = F5(
@@ -4656,26 +4657,37 @@ var joakin$elm_canvas$Canvas$stroke = function (cmds) {
 		cmds,
 		A2(joakin$elm_canvas$Canvas$fn, 'stroke', _List_Nil));
 };
-var author$project$Main$view = function () {
-	var width = 600;
-	var poligono = function (ctx) {
-		return A2(
-			author$project$Main$dibujar,
-			author$project$Main$initn(1),
-			ctx);
-	};
-	var height = 600;
-	return A4(
-		joakin$elm_canvas$Canvas$element,
-		width,
-		height,
-		_List_fromArray(
-			[
-				A2(elm$html$Html$Attributes$style, 'border', '5px solid black')
-			]),
-		joakin$elm_canvas$Canvas$stroke(
-			poligono(
-				A5(joakin$elm_canvas$Canvas$clearRect, 0, 0, width, height, joakin$elm_canvas$Canvas$empty))));
-}();
+var author$project$Main$view = A2(
+	elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2(elm$html$Html$Attributes$style, 'display', 'flex'),
+			A2(elm$html$Html$Attributes$style, 'justify-content', 'center'),
+			A2(elm$html$Html$Attributes$style, 'align-items', 'center')
+		]),
+	_List_fromArray(
+		[
+			function () {
+			var width = 600;
+			var poligono = function (ctx) {
+				return A2(
+					author$project$Main$dibujar,
+					author$project$Main$initn(5),
+					ctx);
+			};
+			var height = 600;
+			return A4(
+				joakin$elm_canvas$Canvas$element,
+				width,
+				height,
+				_List_fromArray(
+					[
+						A2(elm$html$Html$Attributes$style, 'border', '8px solid black')
+					]),
+				joakin$elm_canvas$Canvas$stroke(
+					poligono(
+						A5(joakin$elm_canvas$Canvas$clearRect, 0, 0, width, height, joakin$elm_canvas$Canvas$empty))));
+		}()
+		]));
 var author$project$Main$main = author$project$Main$view;
 _Platform_export({'Main':{'init':_VirtualDom_init(author$project$Main$main)(0)(0)}});}(this));
