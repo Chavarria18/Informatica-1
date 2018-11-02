@@ -4437,59 +4437,218 @@ var author$project$Main$dibujar = F2(
 			return context;
 		}
 	});
-var author$project$Main$init = _List_fromArray(
+var author$project$Main$dibujartriangulos = F2(
+	function (triangulos, context) {
+		if (!triangulos.b) {
+			return context;
+		} else {
+			var x = triangulos.a;
+			var xs = triangulos.b;
+			return A2(
+				author$project$Main$dibujar,
+				x,
+				A2(author$project$Main$dibujartriangulos, xs, context));
+		}
+	});
+var author$project$Main$pmedio = F2(
+	function (x, y) {
+		var _n0 = _Utils_Tuple2(x, y);
+		var _n1 = _n0.a;
+		var x1 = _n1.a;
+		var y1 = _n1.b;
+		var _n2 = _n0.b;
+		var x2 = _n2.a;
+		var y2 = _n2.b;
+		return _Utils_Tuple2((x1 + x2) / 2, (y1 + y2) / 2);
+	});
+var author$project$Main$invtriangulo = function (trian) {
+	if (!trian.b) {
+		return _List_Nil;
+	} else {
+		if (!trian.b.b) {
+			return _List_Nil;
+		} else {
+			if (trian.b.b.b) {
+				var x1 = trian.a;
+				var _n1 = trian.b;
+				var x2 = _n1.a;
+				var _n2 = _n1.b;
+				var x3 = _n2.a;
+				var xs = _n2.b;
+				return A2(
+					elm$core$List$cons,
+					A2(author$project$Main$pmedio, x1, x2),
+					A2(
+						elm$core$List$cons,
+						A2(author$project$Main$pmedio, x2, x3),
+						A2(
+							elm$core$List$cons,
+							A2(author$project$Main$pmedio, x3, x1),
+							_List_Nil)));
+			} else {
+				var _n3 = trian.b;
+				return _List_Nil;
+			}
+		}
+	}
+};
+var author$project$Main$t1 = function (l1) {
+	if (!l1.b) {
+		return _List_Nil;
+	} else {
+		if (!l1.b.b) {
+			return _List_Nil;
+		} else {
+			if (l1.b.b.b) {
+				var x1 = l1.a;
+				var _n1 = l1.b;
+				var x2 = _n1.a;
+				var _n2 = _n1.b;
+				var x3 = _n2.a;
+				var xs = _n2.b;
+				return A2(
+					elm$core$List$cons,
+					x1,
+					A2(
+						elm$core$List$cons,
+						A2(author$project$Main$pmedio, x1, x2),
+						A2(
+							elm$core$List$cons,
+							A2(author$project$Main$pmedio, x3, x1),
+							_List_Nil)));
+			} else {
+				var _n3 = l1.b;
+				return _List_Nil;
+			}
+		}
+	}
+};
+var author$project$Main$t2 = function (l1) {
+	if (!l1.b) {
+		return _List_Nil;
+	} else {
+		if (!l1.b.b) {
+			return _List_Nil;
+		} else {
+			if (l1.b.b.b) {
+				var x1 = l1.a;
+				var _n1 = l1.b;
+				var x2 = _n1.a;
+				var _n2 = _n1.b;
+				var x3 = _n2.a;
+				var xs = _n2.b;
+				return A2(
+					elm$core$List$cons,
+					x2,
+					A2(
+						elm$core$List$cons,
+						A2(author$project$Main$pmedio, x1, x2),
+						A2(
+							elm$core$List$cons,
+							A2(author$project$Main$pmedio, x2, x3),
+							_List_Nil)));
+			} else {
+				var _n3 = l1.b;
+				return _List_Nil;
+			}
+		}
+	}
+};
+var author$project$Main$t3 = function (l1) {
+	if (!l1.b) {
+		return _List_Nil;
+	} else {
+		if (!l1.b.b) {
+			return _List_Nil;
+		} else {
+			if (l1.b.b.b) {
+				var x1 = l1.a;
+				var _n1 = l1.b;
+				var x2 = _n1.a;
+				var _n2 = _n1.b;
+				var x3 = _n2.a;
+				var xs = _n2.b;
+				return A2(
+					elm$core$List$cons,
+					x3,
+					A2(
+						elm$core$List$cons,
+						A2(author$project$Main$pmedio, x3, x1),
+						A2(
+							elm$core$List$cons,
+							A2(author$project$Main$pmedio, x2, x3),
+							_List_Nil)));
+			} else {
+				var _n3 = l1.b;
+				return _List_Nil;
+			}
+		}
+	}
+};
+var author$project$Main$aux = F2(
+	function (n, l) {
+		var _n0 = _Utils_Tuple2(n, l);
+		if (_n0.b.b) {
+			if (!_n0.a) {
+				var _n1 = _n0.b;
+				var x = _n1.a;
+				var xs = _n1.b;
+				return _List_Nil;
+			} else {
+				var ns = _n0.a;
+				var _n2 = _n0.b;
+				var x = _n2.a;
+				var xs = _n2.b;
+				return A2(
+					elm$core$List$cons,
+					A2(elm$core$List$cons, x, xs),
+					A2(
+						elm$core$List$cons,
+						author$project$Main$invtriangulo(
+							A2(elm$core$List$cons, x, xs)),
+						_Utils_ap(
+							A2(
+								author$project$Main$aux,
+								ns - 1,
+								author$project$Main$t1(
+									A2(elm$core$List$cons, x, xs))),
+							_Utils_ap(
+								A2(
+									author$project$Main$aux,
+									ns - 1,
+									author$project$Main$t2(
+										A2(elm$core$List$cons, x, xs))),
+								A2(
+									author$project$Main$aux,
+									ns - 1,
+									author$project$Main$t3(
+										A2(elm$core$List$cons, x, xs)))))));
+			}
+		} else {
+			if (!_n0.a) {
+				return _List_Nil;
+			} else {
+				return _List_Nil;
+			}
+		}
+	});
+var author$project$Main$fractal = _List_fromArray(
 	[
 		_Utils_Tuple2(300, 200),
 		_Utils_Tuple2(400, 400),
 		_Utils_Tuple2(200, 400)
 	]);
-var author$project$Main$conectar = F2(
-	function (_n0, _n1) {
-		var x1 = _n0.a;
-		var y1 = _n0.b;
-		var x2 = _n1.a;
-		var y2 = _n1.b;
-		return _List_Nil;
-	});
-var author$project$Main$siguienteAux = F2(
-	function (origen, puntos) {
-		if (!puntos.b) {
-			return _List_Nil;
-		} else {
-			if (!puntos.b.b) {
-				var p1 = puntos.a;
-				return A2(author$project$Main$conectar, p1, origen);
-			} else {
-				var p1 = puntos.a;
-				var _n1 = puntos.b;
-				var p2 = _n1.a;
-				var resto = _n1.b;
-				return _Utils_ap(
-					A2(author$project$Main$conectar, p1, p2),
-					A2(
-						author$project$Main$siguienteAux,
-						origen,
-						A2(elm$core$List$cons, p2, resto)));
-			}
-		}
-	});
-var author$project$Main$siguiente = function (puntos) {
-	if (!puntos.b) {
-		return _List_Nil;
-	} else {
-		var x = puntos.a;
-		var xs = puntos.b;
-		return A2(author$project$Main$siguienteAux, x, puntos);
-	}
-};
-var author$project$Main$initn = function (n) {
-	if (!n) {
-		return author$project$Main$init;
-	} else {
-		var a = n;
-		return author$project$Main$siguiente(
-			author$project$Main$initn(n - 1));
-	}
+var author$project$Main$fractal2 = _List_fromArray(
+	[
+		_List_fromArray(
+		[
+			_Utils_Tuple2(300, 200),
+			_Utils_Tuple2(400, 400),
+			_Utils_Tuple2(200, 400)
+		])
+	]);
+var author$project$Main$pinky = function (x) {
+	return (!x) ? author$project$Main$fractal2 : A2(author$project$Main$aux, x, author$project$Main$fractal);
 };
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
@@ -4658,12 +4817,7 @@ var joakin$elm_canvas$Canvas$stroke = function (cmds) {
 };
 var author$project$Main$view = function () {
 	var width = 600;
-	var poligono = function (ctx) {
-		return A2(
-			author$project$Main$dibujar,
-			author$project$Main$initn(1),
-			ctx);
-	};
+	var poligono = author$project$Main$pinky(0);
 	var height = 600;
 	return A4(
 		joakin$elm_canvas$Canvas$element,
@@ -4671,10 +4825,12 @@ var author$project$Main$view = function () {
 		height,
 		_List_fromArray(
 			[
-				A2(elm$html$Html$Attributes$style, 'border', '5px solid black')
+				A2(elm$html$Html$Attributes$style, 'border', '5px solid red')
 			]),
 		joakin$elm_canvas$Canvas$stroke(
-			poligono(
+			A2(
+				author$project$Main$dibujartriangulos,
+				poligono,
 				A5(joakin$elm_canvas$Canvas$clearRect, 0, 0, width, height, joakin$elm_canvas$Canvas$empty))));
 }();
 var author$project$Main$main = author$project$Main$view;

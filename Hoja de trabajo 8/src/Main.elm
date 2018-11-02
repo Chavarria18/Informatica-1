@@ -37,3 +37,16 @@ bind xs b =
   case xs of 
     Nothing -> Nothing 
     Just a -> b a  
+
+map f ns = case ns of   
+    [] -> []
+    x::xs -> f x :: map f xs
+
+lista = [1,2,6]
+
+max a = maxaux a 0 
+maxaux a s = case a of 
+    [] -> s
+    x::xs -> maxaux xs (if x > s then x else s)
+
+l = 5

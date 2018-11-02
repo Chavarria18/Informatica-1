@@ -47,3 +47,5 @@ contn (n,y) =
 espar: Int -> Bool
 espar n = 
     if modBy 2 n == 0 then True else False 
+
+
