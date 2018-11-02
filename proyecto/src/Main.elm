@@ -1,22 +1,51 @@
 module Main exposing (..)
 
-import Browser
 import Canvas
 import CanvasColor as Color exposing (Color)
-import Html exposing (Html)
+import Html exposing (Html,div,button,text)
 import Html.Attributes exposing (style)
+import Html.Events exposing (onClick)
+import Browser
+
+type Fractalin = Sierpinsky| Koch | Limpiar
+
+type alias Modelo = {dibufracta : Fractalin, n : Int}
 
 
+modeloInicial : Modelo
+modeloInicial = {dibufracta = Limpiar , n = 0}
+
+type Mensaje = Dibuje Fractalin | Reps Int 
+
+
+actualizador : Mensaje -> Modelo -> Modelo
+actualizador mensaje modelo = case mensaje of 
+    Dibuje a -> {dibufracta = a, n = 0}
+    Reps a -> {dibufracta = modelo.dibufracta, n = if a == 1 
+                                              then (modelo.n) + 1 
+                                              else if a == 0 
+                                              then (modelo.n)- 1 
+                                              else modelo.n}
+
+-- Las coordenadas de cada una de las esquinas del
+-- poligono que se dibujara
 fractal = [
     (300, 200),
     (400, 400),
     (200, 400)]
+
+fractalp : List (Float, Float)
+fractalp = [
+    (300, 45),
+    (500, 425),
+    (100, 425),(300, 45),(300, 45)]
 
 fractal2 : List (List (Float, Float))
 fractal2 = [[
     (300, 200),
     (400, 400),
     (200, 400)]]
+--sierpinsky
 
 pm : (Float, Float) -> (Float, Float) -> (Float, Float)
 pm x y = case (x,y) of
@@ -86,6 +115,38 @@ recu h n = case (h , n) of
 
 sierpinsky x = if x == 0 then fractal2 else recu x fractal 
 
+--koch
+p1 : (Float, Float) -> (Float, Float) -> (Float, Float)
+p1 x y = case (x, y) of
+    ((x1, y1), (x2, y2)) -> (((x1 + (1/2) * x2) / (1 + (1/2))), ((y1 + (1/2) * y2) / (1 + (1/2))))
+
+p2 : (Float, Float) -> (Float, Float) -> (Float, Float)
+p2 x y = case (x, y) of
+    ((x1, y1), (x2, y2)) -> (((x1 + (2 * x2)) / (3)), ((y1 + (2 * y2)) / (3)))
+
+pmx : (Float, Float) -> (Float, Float)
+pmx x = case x of
+    (x2, y2) -> (((x2 * (cos(degrees 60))) - y2 * (sin(degrees 60))), ((x2 * sin(degrees 60) + y2 * cos(degrees 60))))
+
+rot x y = case (x, y) of
+    ((x1, y1), (x2, y2)) -> ((x1 + x2), (y1 + y2))
+
+rotar : (Float, Float) -> (Float, Float) -> (Float, Float)
+rotar x y = case (x, y) of
+    ((x1, y1), (x2, y2)) -> rot (pmx ((x1 - x2), (y1 - y2))) (x2, y2)
+
+ttri lista = case lista of
+    [] -> []
+    x1::x2::xs -> x1::(p1 x1 x2)::(rotar (p1 x1 x2) (p2 x1 x2))::(p2 x1 x2)::(ttri (x2::xs))
+    _ -> []
+
+koch2 n lista = if n == 0 then lista else koch2 (n - 1) (ttri lista)
+
+koch n = koch2 n fractalp
+
+--Para que inicie vacio
+inicial = []
+
 dibujarTriangulo : List (List (Float, Float)) -> Canvas.Commands -> Canvas.Commands
 dibujarTriangulo triangulo context = case triangulo of 
     [] -> context
@@ -112,26 +173,51 @@ dibujar triangulo context =
                 |> Canvas.lineTo x0 y0
             _ -> context
 
--- Funcion que genera el html que corresponde al
--- poligono siendo dibujados
 
-view : Html msg
-view =
+-- Funcion que genera el html que corresponde al
+-- poligono siendo dibujado
+
+vista : Modelo -> Html Mensaje
+vista modelo = div[style "background" "#53918B"]
+    [
+    div [style "display" "flex", style "justify-content" "Center",style "align-items" "Center"]
+    [button [onClick (Dibuje Sierpinsky),style "height" "90px" , style"width" "90px",style "background" "#01FFAA",style "color" "#000000",style "font-family" "Comic Sans Ms"] [text "SIERPINSKI"],
+     button [onClick (Dibuje Koch),style "height" "90px" , style"width" "90px",style "background" "#21618C",style "color" "#FDFEFE",style "font-family" "Comic Sans Ms"] [text "KOCH"],
+     button [onClick (Dibuje Limpiar),style "height" "90px" , style"width" "90px",style "background" "#A93226",style "color" "#FDFEFE",style "font-family" "Purisa"] [text "LIMPIAR"]
+     ],
+
+    div[style "display" "flex",style "justify-content" "center",style "align-items" "center"]
+    [button [onClick (Reps (0)), style "height" "90px" , style"width" "90px",style "background" "#A93226",style "color" "#FDFEFE"] [Html.text "<---"],
     let
         width = 600
         height = 600
-        poligono = sierpinsky 0
+        poligono = if (modelo.dibufracta) == Koch
+                   then dibujar (koch (modelo.n))
+                   else if (modelo.dibufracta) == Sierpinsky
+                   then dibujarTriangulo (sierpinsky (modelo.n))
+                   else if (modelo.dibufracta) == Limpiar 
+                   then dibujar inicial
+                   else dibujar inicial
     in
         Canvas.element
             width
             height
-            [ style "border" "5px solid black" ]
+            [style "border" "5px solid black",
+             style "background" "#1DAB41"]
             (
                 Canvas.empty
+                |> Canvas.beginPath
                 |> Canvas.clearRect 0 0 width height
-                |> dibujarTriangulo poligono
+                |> poligono
                 |> Canvas.stroke
-            )
+            )    
+    ,button [onClick (Reps (1)),style "height" "90px" , style"width" "90px",style "background" "#23D300  ",style "color" "#000000"] [Html.text "--->"]
+    ],div[style "color" "#000000",style "font-family" "Purisa"][text ("EN HONOR A NETOGALLO")]
+    ]
 
-
-
+main =
+    Browser.sandbox
+        { init = modeloInicial
+        , view = vista
+        , update = actualizador
+        }
