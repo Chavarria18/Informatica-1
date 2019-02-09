@@ -11,6 +11,7 @@ int main(){
     
 
     
-    std::printf("Sueldo total: %f, Impuestos totales: %f, empleados: %i", SueldoTotal, ImpuestoEmpres, E);
+     std::printf("Sueldo total: %f , empleados: %i \n", SueldoTotal, E);
+     std::printf("Impuestos totales: %f " ,ImpuestoEmpres);
     return 0; 
 }
