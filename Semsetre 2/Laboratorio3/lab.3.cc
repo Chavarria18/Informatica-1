@@ -1,14 +1,15 @@
 #include <iostream>
 using namespace std; 
+#include<math.h>
 
 int main(){
 
 char p;
 float g = 0.0;
 float k = 0.0;
-int t = 0;
-int t2 = 0;
-
+float t = 0;
+float t2 = 0;
+int vo = 0; //velocidad original
 
 
 cout<<"Ingrese un cáracter:\n";
@@ -19,20 +20,35 @@ switch(p){
     g = 9.8;
     k = 0.0023;
     
-    printf("Ingrese el tiempo de caida libre");
-    cin >> t;
-    for(int t=0; t <= t2; t += 0.1)
-        {
-            float fatm = k*0;
-            float f = g - fatm;
-            float a = f ;
-            float v = g * t;
-            float d = v * t; 
-
-        }
+    printf("La gravedad es: %.2f, la resustencia del viento es: %.4f\n", g ,k);
+   
     
+    printf("Ingrese el tiempo de caida libre");
+    cin >> t2;
+    while(t2 >= t ){
+        float fatm = k * (pow(vo,2));
+        float f = g - fatm;
+        float a = f ;
+        float v = a * t;
+        float d = v * t;
+        t += 0.01;
+        printf("La distancia es %.2f , la velocidad es %.2f ",v ,d);
+
+
+    }
+    
+   
     
     break;
+
+
+
+
+
+
+
+
+
 
     case 'v':
     g = 8.87;
