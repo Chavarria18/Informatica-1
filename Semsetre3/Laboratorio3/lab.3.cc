@@ -10,6 +10,8 @@ float k = 0.0;
 float t = 0;
 float t2 = 0;
 int vo = 0; //velocidad original
+float vtotal = 0;
+float dtotal = 0;
 
 
 cout<<"Ingrese un cáracter:\n";
@@ -23,7 +25,7 @@ switch(p){
     printf("La gravedad es: %.2f, la resistencia del viento es: %.4f\n", g ,k);
    
     
-    printf("Ingrese el tiempo de caida libre");
+    printf("Ingrese el tiempo de caida libre: ");
     cin >> t2;
     while(t2 >= t ){
         float fatm = k * (pow(vo,2));
@@ -32,11 +34,16 @@ switch(p){
         float v = a * t;
         float d = v * t;
         t += 0.01;
-        printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
         vo = v;
+        if(t2 <= t){
+        printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);}
+        
+        
+        
+        }
+    
 
-
-    }
+    
     
    
     
@@ -74,13 +81,9 @@ switch(p){
 
     }
 
-printf("%f , %f\n", g, k);
+
 
 return 0; 
 
 }
     
-
-
-
-
