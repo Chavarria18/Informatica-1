@@ -20,7 +20,7 @@ switch(p){
     g = 9.8;
     k = 0.0023;
     
-    printf("La gravedad es: %.2f, la resustencia del viento es: %.4f\n", g ,k);
+    printf("La gravedad es: %.2f, la resistencia del viento es: %.4f\n", g ,k);
    
     
     printf("Ingrese el tiempo de caida libre");
@@ -32,14 +32,15 @@ switch(p){
         float v = a * t;
         float d = v * t;
         t += 0.01;
-        printf("La distancia es %.2f , la velocidad es %.2f ",v ,d);
+        printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
+        vo = v;
 
 
     }
     
    
     
-    break;
+    break; 
 
 
 
@@ -69,7 +70,7 @@ switch(p){
    
     break;
 
-    default: cout << "El planeta no esta en la base de datos";
+    default: cout << "Entrada invalida,"; main(); 
 
     }
 
