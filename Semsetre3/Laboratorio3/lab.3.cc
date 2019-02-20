@@ -9,13 +9,13 @@ char salida;
 float g = 0.0;
 float k = 0.0;
 float t = 0;//tiempo contador
-float t2 = 0;
+float t2;
 int vo = 0; //velocidad original
-
-
-printf("Escoja un caracter de la sigiente lista:\n Tierra = t\n Venus = v\n Luna = l\n Callisto = c\n");
+system("clear");
+printf("\nBIENVENIDO \n Escoja un caracter de la sigiente lista:\n Tierra = t\n Venus = v\n Luna = l\n Callisto = c\n");
 cout<<"Ingrese el caracter deseado:\n";
 std::cin >> p;
+system("clear");
 
 switch(p){
     case 't':
@@ -32,10 +32,8 @@ switch(p){
         float d = d + (v * (0.01));
         t += 0.01;
         vo = v;
-      
-        
         if(t2 <= t){
-            printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
+            printf("La distancia es %.2f\n La velocidad es %.2f \n",d ,v);
             }
         }
     break; 
@@ -53,11 +51,9 @@ switch(p){
         float v = v + (a * (0.01));
         float d = d + (v * (0.01));
         t += 0.01;
-        vo = v;
-      
-        
+        vo = v;     
         if(t2 <= t){
-            printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
+            printf("La distancia es %.2f\n La velocidad es %.2f \n",d ,v);
             }
         }
     break;
@@ -65,7 +61,7 @@ switch(p){
     case 'l':
     g = 1.62;
     k = 0.0;
-    printf("La gravedad es: %.2f, la resistencia del viento es: %.4f\n", g ,k);
+    printf("La gravedad es: %.2f , la resistencia del viento es: %.4f\n", g ,k);
     printf("Ingrese el tiempo de caida libre:\n");
     cin >> t2;
     while(t2 >= t ){
@@ -75,9 +71,7 @@ switch(p){
         float v = v + (a * (0.01));
         float d = d + (v * (0.01));
         t += 0.01;
-        vo = v;
-      
-        
+        vo = v;   
         if(t2 <= t){
             printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
             }
@@ -98,17 +92,15 @@ switch(p){
         float d = d + (v * (0.01));
         t += 0.01;
         vo = v;
-      
-        
         if(t2 <= t){
             printf("La distancia es %.2f \nLa velocidad es %.2f \n",d ,v);
             }
         }
     break;
 
-default: cout << "Entrada invalida,"; main(); 
+default: cout << "ENTRADA INVALIDA";main(); 
 }
-cout<<"Desea salir del programa (s/n)?:\n";cin >> salida;
+cout<<"\n Desea salir del programa (s/n)?:\n";cin >> salida;
 switch(salida){
         case 's':
         system("clear");
@@ -122,6 +114,4 @@ switch(salida){
         }
 return 0; 
 }
-
-
 //Se aproximo la respuesta a dos decimales. 
