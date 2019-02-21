@@ -1,10 +1,9 @@
 #include <iostream>
-
 using namespace std;
 
 
 
-//Parte 2 
+//Tarea #2 
 
 
 float productoPunto(const float* x, const float* y, int dims){
@@ -20,6 +19,8 @@ float productoPunto(const float* x, const float* y, int dims){
     return total; 
 }
 
+//Tarea #3  
+
 bool sonOrtogonales(const float* x, const float* y, int dims){
      float producto;
      producto = productoPunto(x, y, dims);
@@ -31,8 +32,25 @@ bool sonOrtogonales(const float* x, const float* y, int dims){
      }
     return false; 
 
+}
+
+
+//Tarea #4  
+bool esBase(const float** vecotres, const int dims){
+    float vectores; 
+    if (productoPunto == 0 && sonOrtogonales){
+        printf("Es un espacio vectorial");
+        return true; 
+        }
+    return false; 
+     
 
 }
+    
+
+
+
+
 
 
 int main(){
@@ -52,8 +70,9 @@ int main(){
     for(int j=0; j < dims; j++){
         cin>> y1[j];
     }
-    //productoPunto(x1, y1,dims);
-    bool a = sonOrtogonales(x1, y1,dims); 
+    productoPunto(x1, y1,dims);
+    bool a = sonOrtogonales(x1, y1,dims);
+    //bool b = esBase(productoPunto, dims);
     
 
       
