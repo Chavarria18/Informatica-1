@@ -37,12 +37,7 @@ bool sonOrtogonales(const float* x, const float* y, int dims){
 
 //Tarea #4  
 bool esBase(const float** vectores, const int dims){
-    /*float vectores; 
-    if (productoPunto == 0 && sonOrtogonales){
-        printf("Es un espacio vectorial");
-        return true; 
-        }
-    return false; */
+       
     bool w;
     bool q; 
     w = sonOrtogonales(*vectores, *vectores,  dims); 
@@ -61,12 +56,16 @@ bool esBase(const float** vectores, const int dims){
 
 
 int main(){
-   printf("Ingrese la dimension deseada:\n ");
-   int dims;
-   cin >> dims;
+    
+    float vector1[] = {1,0};
+    float vecotr2[] = {0 ,1};
+    
+    printf("Ingrese la dimension deseada:\n ");
+    int dims;
+    cin >> dims;
    
-   float x1[dims];
-   float y1[dims]; 
+    float x1[dims];
+    float y1[dims]; 
    //float r[dims];
 
     printf("Ingrese el primer vector:\n ");
@@ -79,10 +78,10 @@ int main(){
     }
     productoPunto(x1, y1,dims);
     bool a = sonOrtogonales(x1, y1,dims);
-    bool b = esBase(x1,y1, dims);
+    //bool b = esBase(vector1, dims);
     
 
-      
+  
  
     
 
