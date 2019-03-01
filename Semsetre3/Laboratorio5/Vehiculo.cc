@@ -13,14 +13,16 @@ float Vehiculo::Acelerar(const Vector2d&, const float _t){return 0.0;}
 
 
 int main(){
-     
-     int f = 2, z = 5;
-
+     float Velocidad[2]={2.5,3.56}; 
+     float Posicion[]={5.0,6.0}; 
+     float f = *Velocidad;
+     float z = *Posicion;  
     
     std::stringstream resultado;
     resultado << "{x:" << f << ",y:" << z << "}";
     std::string s = resultado.str();
     printf(s.c_str());
+        
 
     
 
