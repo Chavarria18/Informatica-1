@@ -14,7 +14,7 @@ class Vector2d{
     float getX() const;
     float getY() const;
     const std::string to_string() const;
-    void Tostring(); 
+    string To_string(); 
    
     
 
