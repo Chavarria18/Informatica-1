@@ -4,20 +4,17 @@
 
 Poligono::Poligono(int vertices){}
 
-
-
-int Poligono::vertices() const{
+int Poligono::vertices() {
+    printf("el numero de vertices es &i: " , _vertices); 
     return _vertices;
 }
 
-Poligono::~Poligono(){
 
-    printf("Se destruyo\n");
-    delete _vertices;
+
+
+int main(){
+    
 }
-
-
-
 
 
 

@@ -1,12 +1,12 @@
 #pragma once
 #include"contenedor.hh"
 
-class Poligono: public Container{
+class Poligono{
     public: 
     
     Poligono(int _vertices);
-    virtual int vertices() const override;
-    ~Poligono();
+    int vertices();
+    
 
     private:
     int _vertices;
