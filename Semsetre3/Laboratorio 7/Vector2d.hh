@@ -15,14 +15,7 @@ class Vector2d{
     float getY() const;
     const std::string to_string() const;
     
-    
-
-    
-    
-    
-    
-
-   
+       
     const float x;
     const float y;
 

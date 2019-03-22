@@ -1,5 +1,6 @@
 #include "Vector2d.hh"
 #pragma once
+#include <string> 
 
 
 
@@ -14,6 +15,6 @@ class Figura{
     virtual void mover(const Vector2d lugar) = 0;
     virtual bool estaAdentro(const Vector2d posicion) = 0; 
     
-    virtual const std::string to_string() const = 0;
+    virtual const std::string to_String() const = 0;
 
 };

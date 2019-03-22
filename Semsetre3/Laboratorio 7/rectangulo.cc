@@ -37,5 +37,7 @@ const std::string Rectangulo::to_string()const {
    
 }
 
+//int main(){}
+
 
 

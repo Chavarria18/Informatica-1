@@ -1,6 +1,7 @@
 #pragma once
 #include "Figura.hh"
-#include <string.h> 
+#include <string> 
+#include"Vector2d.hh"
 
 //Tarea #1 
 class Circulo : public Figura{
@@ -14,7 +15,7 @@ class Circulo : public Figura{
         virtual void mover(const Vector2d lugarx) override;
         virtual bool estaAdentro(const Vector2d posicionx) override; 
 
-       virtual const std::string to_string() const override;
+       virtual const std::string to_String() const override;
 
 
         ~Circulo(); 

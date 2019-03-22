@@ -1,7 +1,9 @@
 #include"Circulo.hh"
+#include"Vector2d.hh"
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <string> 
 
 
 //Tarea#2 
@@ -35,11 +37,12 @@ bool Circulo::estaAdentro(const Vector2d posicion){
     }
     
 
-const std::string Circulo::to_string()const{
-    std::stringstream valtotal;
-    valtotal << "{c( " << centro.to_string() << " " << _radio << ")}";
-    std::string s = valtotal.str();
+const std::string Circulo::to_String()const{
+    std::stringstream resultado;
+    resultado << "{c( " << centro.to_string() << " " << _radio << ")}";
+    std::string s = resultado.str();
     printf(s.c_str());
+    return 0;
    
 }
 
