@@ -4,6 +4,8 @@
 #include <math.h>
 
 
+//Tarea#2 
+
 Circulo::Circulo(Vector2d centro, double _radio): centro(centro) ,_radio(_radio){}
 
 double Circulo::area()const {
@@ -33,13 +35,15 @@ bool Circulo::estaAdentro(const Vector2d posicion){
     }
     
 
-const std::string Circulo::to_string()const {
+const std::string Circulo::to_string()const{
     std::stringstream valtotal;
-    valtotal << "{( " << centro.to_string() << " " << _radio << ")}";
+    valtotal << "{c( " << centro.to_string() << " " << _radio << ")}";
     std::string s = valtotal.str();
     printf(s.c_str());
    
 }
 
+int main(){
 
+}
 
