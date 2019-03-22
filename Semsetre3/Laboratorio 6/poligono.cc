@@ -12,9 +12,6 @@ int Poligono::vertices() {
 
 
 
-int main(){
-    
-}
 
 
 

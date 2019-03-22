@@ -6,14 +6,14 @@
 using namespace std; 
 
 
-Vehiculo::Vehiculo() : Velocidad(0.0,0), Posicion(0.0,0.0) {}
+Vehiculo::Vehiculo() : Velocidad(0.0,0.0), Posicion(0.0,0.0) {}
 
 
-Vector2d Vehiculo::getVelocidad(){
+Vector2d Vehiculo::getVelocidad()const{
         return Velocidad; 
 }
 
-Vector2d Vehiculo::getPosicion(){
+Vector2d Vehiculo::getPosicion()const{
         return Posicion; 
 }
 
@@ -24,16 +24,21 @@ const std::string Vehiculo::to_string()const {
     printf(s.c_str());
 }
 
-void Vehiculo::acelerar(const Vector2d aceleracion, float tiempo){
-    Velocidad.x = (Velocidad.x + aceleracion.x )* tiempo;
-    Velocidad.y = (Velocidad.y + aceleracion.y )* tiempo;
-    Posicion.x = (Posicion.x + Velocidad.x)* tiempo;
-    Posicion.y = (Posicion.y + Velocidad.y) * tiempo;
-    
+void Vehiculo::acelerar(const Vector2d& v, float tiempo){
+    float ts = tiempo; 
+    while(ts > 1){
+        Velocidad = Velocidad + v; 
+        Posicion = Posicion + Velocidad; 
+        ts = ts -1; 
+
+    }
+    Velocidad = Velocidad + (v + ts);
+    Posicion = Posicion + Velocidad; 
 }
 
 
 void Vehiculo::avanzar(float t){
+    Posicion = Posicion + (Velocidad * t); 
 
     Posicion.x = (Posicion.x + Velocidad.x)* t;
     Posicion.y = (Posicion.y + Velocidad.y )* t;

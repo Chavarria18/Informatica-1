@@ -1,3 +1,4 @@
+#pragma once 
 #include "Vector2d.hh"
 #include<string> 
 
@@ -6,12 +7,16 @@
 class Vehiculo{
 
     public:
-    Vehiculo();    
-    Vector2d getVelocidad();
-    Vector2d getPosicion();
+    Vehiculo();    //inicia sin ningun parametro
+    Vector2d getVelocidad()const;
+    Vector2d getPosicion()const;
     const std::string to_string() const;
 
-    void acelerar(const Vector2d aceleracion, float tiempo);
+    Vehiculo operator+() ;
+    Vehiculo operator*() ;
+     
+
+    void acelerar(const Vector2d&, float tiempo);
     void avanzar(float t); 
     
     
