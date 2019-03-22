@@ -9,14 +9,15 @@ class Circulo : public Figura{
 
         Circulo(Vector2d centro, double _radio); 
         
-        virtual double area()const override = 0; 
-        virtual void escalar(const double escalax) override = 0;
-        virtual void mover(const Vector2d lugarx) override = 0;
-        virtual bool estaAdentro(const Vector2d posicionx) override = 0; 
+        virtual double area()const override; 
+        virtual void escalar(const double escalax) override;
+        virtual void mover(const Vector2d lugarx) override;
+        virtual bool estaAdentro(const Vector2d posicionx) override; 
 
-        virtual const std::string to_string() const;
+       virtual const std::string to_string() const override;
 
-        //virtual ~Circulo(); 
+
+        ~Circulo(); 
 
               
         private: 

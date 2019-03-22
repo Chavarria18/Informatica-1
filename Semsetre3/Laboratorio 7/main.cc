@@ -4,7 +4,7 @@
 #include<iostream>
 using namespace std; 
 
-int const  abarcar(Figura& figura, Vector2d[] puntos, int cantidad ){}
+void const  abarcar(Figura& figura, Vector2d[] puntos, int cantidad){}
 
 int main(){
 

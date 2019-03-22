@@ -17,7 +17,7 @@ void Circulo::escalar(const double escalax){
     double nuevoradio = _radio * escalax;
 }
 
-void mover(const Vector2d lugarx){
+void Circulo::mover(const Vector2d lugarx){
     Vector2d centro = lugarx; 
 }
 
@@ -44,6 +44,11 @@ const std::string Circulo::to_string()const{
 }
 
 
+Circulo::~Circulo(){
+
+    printf("Se destruyo\n");
+    delete &_radio;
+}
 
 int main(){
 
