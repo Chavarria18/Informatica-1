@@ -1,4 +1,5 @@
 #include "Vector2d.hh"
+#pragma once
 
 //#pragma once
 

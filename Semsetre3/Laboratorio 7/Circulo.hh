@@ -19,7 +19,6 @@ class Circulo : public Figura{
         //virtual ~Circulo(); 
 
               
-       
         private: 
 
         double _radio; 
