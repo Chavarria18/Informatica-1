@@ -16,7 +16,7 @@ class Circulo : public Figura{
 
         virtual const std::string to_string() const;
 
-        virtual ~Circulo(); 
+        //virtual ~Circulo(); 
 
               
         private: 

@@ -34,17 +34,12 @@ int main(){
         Figura Circulo; 
         Circulo.area();
        
-
-        
-
-        /*case 'r' :
+   
+      /*case 'r' :
         int x , y; 
         Vector2d coordenadas; 
         */ 
-
-
-
-        
+     
 
             break;
     
