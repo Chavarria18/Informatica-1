@@ -16,20 +16,12 @@ class Circulo : public Figura{
 
         virtual const std::string to_string() const;
 
-
-
-
-
-
+        Circulo operator>(const Vector2d& posicionx) const;
         
-        private:
+       
 
         double _radio; 
         Vector2d centro; 
-
-
-
-
 
 
 
