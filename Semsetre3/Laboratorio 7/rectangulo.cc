@@ -4,8 +4,6 @@
 #include <math.h>
 
 
-
-
 Rectangulo::Rectangulo(Vector2d esquinaInf, double _ancho , double _largo ): esquinaInf(esquinaInf), _largo(_largo), _ancho(_ancho) {}
 
 double Rectangulo::area()const {
@@ -23,7 +21,7 @@ void Rectangulo::mover(const Vector2d lugarx){
 
 bool Rectangulo::estaAdentro(const Vector2d posicion){
         double distancia;
-        if(_ancho > posicion.x && _largo > posicion.y){
+        if(_ancho > posicion.x || _largo > posicion.y){
             return false;
 
         }else {
