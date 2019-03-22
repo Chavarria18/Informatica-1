@@ -21,7 +21,7 @@ void Rectangulo::mover(const Vector2d lugarx){
 
 bool Rectangulo::estaAdentro(const Vector2d posicion){
         double distancia;
-        if(_ancho > posicion.x || _largo > posicion.y){
+        if(_ancho < posicion.x || _largo < posicion.y){
             return false;
 
         }else {
