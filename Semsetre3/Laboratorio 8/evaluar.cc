@@ -1,8 +1,13 @@
 #include <string> 
 #include "Arith.hh"
 #include "ZArith.hh"
+#include "Semantica.hh"
+#include <iostream>
 
-
+bool evaluar(const Semantica& x , const std::string& expression, int& resultado){
+    
+	return x.parse(expression, resultado);
+}
 
 int main(){
     std::string ex1("2*3+5");
@@ -23,6 +28,6 @@ int main(){
 
     if(!evaluar(sem1, ex2, resultado)){
         // Imprime: "No se pudo evaluar ex2"
-        printf("No se pudo evaluar ex2".);
+        printf("No se pudo evaluar ex2");
     }
 }

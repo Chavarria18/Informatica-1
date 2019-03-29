@@ -1,5 +1,6 @@
 #include "ZArith.hh"
 
+
 ZArith::ZArith(int _base): _base(_base){}
 
 bool parseInt(const std::string& valor, int& resultado){
