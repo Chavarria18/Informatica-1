@@ -8,8 +8,7 @@ bool parse(const std::string& valor, int& resultado){
     int i = 0;
     for(int i = 0; i < tam; i++)
     {
-        if(valor[i] == '0' || valor[i] == '1' || valor[i] == '2' || valor[i] == '3' || valor[i] == '4' ||
-        valor[i] == '5' || valor[i] == '6' || valor[i] == '7' || valor[i] == '8' || valor[i] == '9' ){
+        if(valor[i] < '0' || valor[i] > '9' ){
             
             if (i == ( tam - 1 )){
                 resultado = std::stoi( valor ); 
