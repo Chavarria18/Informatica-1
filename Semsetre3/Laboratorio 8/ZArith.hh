@@ -6,7 +6,7 @@ class ZArith : public Semantica{
 
     public: 
     
-    ZArith(); 
+    ZArith(int base); 
     virtual bool parse(const std::string valor, int& resultado)const override; 
     virtual int opSuma(const int arg1, const int arg2)const override; 
     virtual int opProducto(const int arg1, const int arg2)const override;
@@ -16,7 +16,7 @@ class ZArith : public Semantica{
 
     int arg1; 
     int arg2;
-    int base; 
+    int _base; 
 
 
 }; 
