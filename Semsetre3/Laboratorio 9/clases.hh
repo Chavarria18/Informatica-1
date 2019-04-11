@@ -40,7 +40,7 @@ class Suma : public OperacionBinaria{
     
     public: 
 
-    Suma(Expression* _operador1, Expression* _operador2): operador1(_operador1),operador2(_operador2);
+    Suma(Expression* _operador1, Expression* _operador2): operador1(_operador1),operador2(_operador2){}//error si no encontras forma borra esta linea
     virtual double evaluar()override;  
     virtual double operar(const double op1, const double op2)const override;
 
@@ -55,7 +55,7 @@ class Multiplicacion : public OperacionBinaria{
     
     public: 
 
-    Multiplicacion(Expression* _operador1, Expression* _operador2):operador1(_operador1), operador2(_operador2){} 
+    Multiplicacion(Expression* _operador1, Expression* _operador2):operador1(_operador1), operador2(_operador2){}//error  //error si no encontras forma borra esta linea
     virtual double evaluar()override; 
     virtual double operar(const double op1, const double op2)const override;
 
